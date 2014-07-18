@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  *
  * @author todyerutz @ plainintricacy.wordpress.com
- * Java program that simulates an encryption device based on the Vigenere Cipher:
+ * Java program that simulates a decryption device based on the Vigenere Cipher:
  * https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
  */
 
@@ -15,11 +15,11 @@ public class Vigenere_Cipher {
     public static void main(String[] args) {
     
         try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Please enter your message:");
+            System.out.println("Please enter your encrypted message:");
             char[] arr = input.nextLine().toUpperCase().toCharArray();
             System.out.println("Please enter your keyword:");
             char[] KeyArr = input.nextLine().toUpperCase().toCharArray();
-            System.out.println("Encrypted message:");
+            System.out.println("Decrypted message:");
             encrypt(arr, KeyArr);
             System.out.println();
             input.close();
@@ -60,7 +60,7 @@ public class Vigenere_Cipher {
             if(isLetter(a[i])){
                 if(q==b.length){
                     q=0;}
-                    a[i] = alphabet.charAt(Lpos(alphabet.charAt(Apos(Lpos(a[i])+Lpos(b[q])))));
+                    a[i] = alphabet.charAt(Lpos(alphabet.charAt(Apos(Lpos(a[i])-Lpos(b[q])))));
                     q++;
             }
         }
